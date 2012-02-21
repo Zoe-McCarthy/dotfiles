@@ -291,6 +291,7 @@ let g:pyflakes_use_quickfix = 0
 py << EOF
 import os.path
 import sys
+
 import vim
 if 'VIRTUALENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
@@ -327,3 +328,8 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
