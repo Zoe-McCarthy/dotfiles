@@ -52,3 +52,6 @@
 [submodule "_vim/bundle/vim-cute-python"]
 	path = _vim/bundle/vim-cute-python
 	url = https://github.com/ehamberg/vim-cute-python.git
+[submodule "_vim/bundle/minibufexpl"]
+	path = _vim/bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git

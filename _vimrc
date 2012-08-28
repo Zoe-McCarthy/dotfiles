@@ -43,6 +43,9 @@
 "
 " Py.test
 "    Run py.test test's from within vim
+"    
+" Minibufferexploer
+"    Displays a buffer window up top
 "
 " MakeGreen
 "    Generic test runner that works with nose
