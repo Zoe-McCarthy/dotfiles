@@ -74,7 +74,7 @@ nmap <leader>sb :call SplitScroll()<CR>
 cmap W! w !sudo tee % >/dev/null
 
 " Toggle the tasklist
-" map <leader>td <Plug>TaskList
+map <leader>td <Plug>TaskList
 
 " Run pep8
 let g:pep8_map='<leader>8'
@@ -181,7 +181,7 @@ set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a word
 set autoindent              " always set autoindenting on
 set smartindent             " use smart indent if there is no indent file
-set tabstop=4               " <tab> inserts 4 spaces 
+set tabstop=4               " <tab> inserts 4 spaces
 set shiftwidth=4            " but an indent level is 2 spaces wide.
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
@@ -223,7 +223,7 @@ set list
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
-set smarttab                " Handle tabs more intelligently 
+set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
@@ -257,22 +257,22 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " ==========================================================
 " Javascript
 " ==========================================================
-au BufRead *.js set makeprg=jslint\ %
+" au BufRead *.js set makeprg=jslint\ %
 
 " Don't allow snipmate to take over tab
-autocmd VimEnter * ino <c-j> <c-r>=TriggerSnippet()<cr>
+" autocmd VimEnter * ino <c-j> <c-r>=TriggerSnippet()<cr>
 " Use tab to scroll through autocomplete menus
-autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
-autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-let g:acp_completeoptPreview=1
+" autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
+" autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
+" snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+" let g:acp_completeoptPreview=1
 
 " ===========================================================
 " FileType specific changes
 " ============================================================
 " Mako/HTML
-autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
-autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
+" autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " Python
 "au BufRead *.py compiler nose
@@ -282,34 +282,13 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
 
+au FileType python set colorcolumn=79
 
 
-" Add the virtualenv's site-packages to vim path
-py << EOF
-import os.path
-import sys
-
-import vim
-if 'VIRTUALENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-" Load up virtualenv's vimrc if it exists
-if filereadable($VIRTUAL_ENV . '/.vimrc')
-    source $VIRTUAL_ENV/.vimrc
-endif
-
-set colorcolumn=79
-
-filetype plugin on
-set grepprg=grep\ -nH\ $*
-filetype indent on
+" Start with vim-latex on latex files
 let g:tex_flavor='latex'
 
-" relative line numbers. AWESOME STUFF!
+" Relative line numbers. AWESOME STUFF!
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
