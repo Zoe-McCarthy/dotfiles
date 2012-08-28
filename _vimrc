@@ -74,21 +74,18 @@ nmap <leader>sb :call SplitScroll()<CR>
 cmap W! w !sudo tee % >/dev/null
 
 " Toggle the tasklist
-map <leader>td <Plug>TaskList
+" map <leader>td <Plug>TaskList
 
 " Run pep8
 let g:pep8_map='<leader>8'
 
-" run py.test's
-nmap <silent><Leader>tf <Esc>:Pytest file<CR>
-nmap <silent><Leader>tc <Esc>:Pytest class<CR>
-nmap <silent><Leader>tm <Esc>:Pytest method<CR>
-nmap <silent><Leader>tn <Esc>:Pytest next<CR>
-nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><Leader>te <Esc>:Pytest error<CR>
-
-" Run django tests
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+" run py.test's don't use that so maybe later
+" nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+" nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+" nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+" nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+" nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+" nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -168,7 +165,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
-set completeopt=menuone,longest,preview
+set completeopt=longest,preview
 set pumheight=6             " Keep a small completion window
 
 
