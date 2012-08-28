@@ -35,6 +35,9 @@ xterm*|rxvt*)
     ;;
 esac
 
+ack(){
+    ack-grep $1
+}
 
 # Set up TERM variables.
 # vt100 and xterm have no color in vim (at least on unixs), but if we call them xterm-color, they will.
