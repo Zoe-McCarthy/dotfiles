@@ -55,3 +55,6 @@
 [submodule "_vim/bundle/minibufexpl"]
 	path = _vim/bundle/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "vim-python"]
+	path = vim-python
+	url = https://github.com/ivanov/vim-python.git
