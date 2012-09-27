@@ -192,3 +192,5 @@ export PYTHONPATH="$HOME/ros_workspace/python:$PYTHONPATH"
 
 source $(rosstack find raven_2)/utilities/setup.sh
 
+alias ipy='ipython qtconsole'
+alias ipylab='ipython qtconsole --pylab=inline'
