@@ -58,3 +58,9 @@
 [submodule "vim-python"]
 	path = vim-python
 	url = https://github.com/ivanov/vim-python.git
+[submodule "_vim/bundle/tagbar"]
+	path = _vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "_vim/ftplugin/vim-ipython"]
+	path = _vim/ftplugin/vim-ipython
+	url = https://github.com/ivanov/vim-ipython.git

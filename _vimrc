@@ -232,6 +232,11 @@ set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
+""" Ctags
+set tags+=$HOME/.vim/ctags/kerneltags  
+set tags+=$HOME/.vim/ctags/researchtags    
+set tags+=$HOME/.vim/ctags/rostags
+
 """" Display
 if has("gui_running")
     colorscheme desert
@@ -314,3 +319,29 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! %!sudo tee > /dev/null %
+
+
+
+nmap <silent> <Leader>=  <Plug>FontsizeBegin 
+nmap <silent> <Leader>+  <Plug>FontsizeInc 
+nmap <silent> <Leader>-  <Plug>FontsizeDec 
+nmap <silent> <Leader>0  <Plug>FontsizeDefault 
+
+ let g:fontsize#defaultSize = 18 
+
+
+set guifont=Monospace\ 14
+
+" Tagbar
+nmap <silent> <Leader>t :TagbarToggle<CR>
+
+
+source $HOME/.vim/plugin/autotag.vim
+
+" Awesome visual line-based . formula
+vnoremap . :norm.<CR>
+

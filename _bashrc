@@ -184,14 +184,44 @@ alias ipylab='ipython qtconsole --pylab=inline'
 export BULLETSIM_SOURCE_DIR=~/softwareLibraries/bulletsim/bulletsim
 export BULLETSIM_BUILD_DIR=~/softwareLibraries/bulletsim/build
 
+# DRC Sim path stuff
+source /usr/share/drcsim/setup.sh
 
 # ROS path stuff
-source /opt/ros/fuerte/setup.bash
-export ROS_PACKAGE_PATH="$HOME/ros_workspace:$ROS_PACKAGE_PATH"
-export ROS_WORKSPACE="$HOME/ros_workspace"
-export PYTHONPATH="$HOME/ros_workspace/python:$PYTHONPATH"
+source ~/fuerte_workspace/setup.bash
+export ROS_WORKSPACE="$HOME/fuerte_workspace"
+export PYTHONPATH="$HOME/fuerte_workspace/python:$PYTHONPATH"
+export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
+
+source /usr/share/drcsim/setup.sh
+export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
+
 
 # ROS RAVEN FUNCTIONS
 
-source $(rosstack find raven_2)/utilities/setup.sh
+# source $(rosstack find raven_2)/utilities/setup.sh
 
+
+# openrave
+export PYTHONPATH=$PYTHONPATH:'openrave-config --python-dir'
+
+# Gurobi stuff
+export GUROBI_HOME="$HOME/lib/gurobi510/linux64/"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib:/usr/local/lib/"
+
+# Trajopt stuff
+export TRAJOPT_SOURCE_DIR="${HOME}/research/trajopt/"
+export TRAJOPT_BUILD_DIR="${HOME}/research/trajopt/build/"
+
+#
+export PYTHONPATH="$PYTHONPATH:$HOME/research/trajopt/:$HOME/research/trajopt/build/lib"
+
+
+
+# Anaconda
+export PATH="${HOME}/anaconda/bin/:$PATH"
+
+
+# ROS/Python
+#export PYTHONPATH="${PYTHONPATH}:/usr/lib/pymodules/python2.7/"
