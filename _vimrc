@@ -334,7 +334,7 @@ nmap <silent> <Leader>0  <Plug>FontsizeDefault
  let g:fontsize#defaultSize = 18 
 
 
-set guifont=Monospace\ 14
+set guifont=Monospace\ 10
 
 " Tagbar
 nmap <silent> <Leader>t :TagbarToggle<CR>

@@ -169,7 +169,7 @@ parse_svn_url() {
 parse_svn_repository_root() {
   svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
-set -o emacs
+set -o vi
 export EDITOR="$vim"
 export GIT_EDITOR="$vim"
 
@@ -185,16 +185,16 @@ export BULLETSIM_SOURCE_DIR=~/softwareLibraries/bulletsim/bulletsim
 export BULLETSIM_BUILD_DIR=~/softwareLibraries/bulletsim/build
 
 # DRC Sim path stuff
-source /usr/share/drcsim/setup.sh
+#source /usr/share/drcsim/setup.sh
 
 # ROS path stuff
-source ~/fuerte_workspace/setup.bash
-export ROS_WORKSPACE="$HOME/fuerte_workspace"
-export PYTHONPATH="$HOME/fuerte_workspace/python:$PYTHONPATH"
-export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
+source ~/ros/setup.bash
+export ROS_WORKSPACE="$HOME/ros"
+export PYTHONPATH="$HOME/ros/python:$PYTHONPATH"
+export ROS_PACKAGE_PATH="$HOME/ros:$ROS_PACKAGE_PATH"
 
-source /usr/share/drcsim/setup.sh
-export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
+#source /usr/share/drcsim/setup.sh
+#export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
 
 
 # ROS RAVEN FUNCTIONS
@@ -203,25 +203,58 @@ export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
 
 
 # openrave
-export PYTHONPATH=$PYTHONPATH:'openrave-config --python-dir'
+#export PYTHONPATH=$PYTHONPATH:'openrave-config --python-dir'
 
 # Gurobi stuff
-export GUROBI_HOME="$HOME/lib/gurobi510/linux64/"
+export GUROBI_HOME="$HOME/lib/gurobi550/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib:/usr/local/lib/"
 
 # Trajopt stuff
-export TRAJOPT_SOURCE_DIR="${HOME}/research/trajopt/"
-export TRAJOPT_BUILD_DIR="${HOME}/research/trajopt/build/"
-
-#
-export PYTHONPATH="$PYTHONPATH:$HOME/research/trajopt/:$HOME/research/trajopt/build/lib"
-
-
+export TRAJOPT_SOURCE_DIR="${HOME}/lib/trajopt/"
+export TRAJOPT_BUILD_DIR="${HOME}/lib/trajopt/build/"
+export PYTHONPATH="$PYTHONPATH:$HOME/lib/trajopt/:$HOME/lib/trajopt/build/lib"
 
 # Anaconda
-export PATH="${HOME}/anaconda/bin/:$PATH"
+#export PATH="${HOME}/anaconda/bin/:$PATH"
+alias anaena='export PATH="${HOME}/anaconda/bin/:$PATH"'
+alias anadis="export PATH=$(echo ${PATH} | awk -v RS=: -v ORS=: '/anaconda/ {next} {print}' | sed 's/:*$//')"
 
+# Numbapro
+export NUMBAPRO_CUDA_DRIVER="/usr/local/cuda/lib64/libcuinj64.so"
+export NUMBAPRO_NVVM="/home/zoe/lib/LibNVVM/lib/x86_64_Linux_release/libnvvm.so"
 
 # ROS/Python
-#export PYTHONPATH="${PYTHONPATH}:/usr/lib/pymodules/python2.7/"
+export PYTHONPATH="${PYTHONPATH}:/usr/lib/pymodules/python2.7/"
+alias sim='export ROS_MASTER_URI=http://localhost:11311'
+alias brett='export ROS_MASTER_URI=http://c1:11311'
+
+
+
+# Cuda
+export CUDA_HOME=/usr/local/cuda-5.0
+export PATH=$PATH:$CUDA_HOME/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64:$CUDA_HOME/lib
+
+# Cula
+export CULA_ROOT="/usr/local/cula"
+export CULA_INC_PATH="$CULA_ROOT/include"
+export CULA_LIB_PATH_32="$CULA_ROOT/lib"
+export CULA_LIB_PATH_64="$CULA_ROOT/lib64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CULA_LIB_PATH_64"
+
+source ~/ros/sandbox/setup.sh
+brett
+export ROS_HOSTNAME='169.229.223.118'
+
+#function removefrompath {
+	#if [ ! "$2" ]
+	#then echo "Usage: removefrompath [path] [toberemoved] "
+	#else
+		#thispath=$1
+		#toberemoved=$2
+        #echo $(echo ${$thispath} | awk -v RS=: -v ORS=: '/$toberemoved/ {next} {print}' | sed 's/:*$//')
+	#fi
+#}
+
+anaena

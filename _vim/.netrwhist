@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/zoe/Engineering_Open_House/Two-Dimensional-Inverted-Pendulum/main/WithKalman/kalman'
 let g:netrw_dirhist_2='/Users/zoemccarthy12/dotfiles/_vim'
+let g:netrw_dirhist_3='/home/zoe/openvpn/basestation'
