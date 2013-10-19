@@ -1,1 +1,146 @@
-../.zshrc
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export PATH=$PATH:/opt/ros/fuerte/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/zoe/lib/gurobi550/linux64/bin
+
+
+# vim
+# bash
+export EDITOR="$vim"
+export GIT_EDITOR="$vim"
+# zsh
+bindkey -v
+
+# Add git and svn branch names
+#export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
+
+# Nifty ipython shortcuts
+alias ipy='ipython qtconsole'
+alias ipylab='ipython qtconsole --pylab=inline'
+
+# bullet sim stuff
+export BULLETSIM_SOURCE_DIR=~/softwareLibraries/bulletsim/bulletsim
+export BULLETSIM_BUILD_DIR=~/softwareLibraries/bulletsim/build
+
+# DRC Sim path stuff
+#source /usr/share/drcsim/setup.sh
+
+# ROS path stuff
+source ~/ros/setup.zsh
+export ROS_WORKSPACE="$HOME/ros"
+export PYTHONPATH="$HOME/ros/python:$PYTHONPATH"
+export ROS_PACKAGE_PATH="$HOME/ros:$ROS_PACKAGE_PATH"
+
+
+#source /usr/share/drcsim/setup.sh
+#export ROS_PACKAGE_PATH="$HOME/fuerte_workspace:$ROS_PACKAGE_PATH"
+
+
+# ROS RAVEN FUNCTIONS
+
+# source $(rosstack find raven_2)/utilities/setup.sh
+
+
+# openrave
+#export PYTHONPATH=$PYTHONPATH:'openrave-config --python-dir'
+
+# Gurobi stuff
+export GUROBI_HOME="$HOME/lib/gurobi550/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib:/usr/local/lib/"
+
+# Trajopt stuff
+export TRAJOPT_SOURCE_DIR="${HOME}/lib/trajopt/"
+export TRAJOPT_BUILD_DIR="${HOME}/lib/trajopt/build/"
+export PYTHONPATH="$PYTHONPATH:$HOME/lib/trajopt/:$HOME/lib/trajopt/build/lib"
+
+# Anaconda
+#export PATH="${HOME}/anaconda/bin/:$PATH"
+alias anaena='export PATH="${HOME}/anaconda/bin/:$PATH"'
+alias anadis="export PATH=$(echo ${PATH} | awk -v RS=: -v ORS=: '/anaconda/ {next} {print}' | sed 's/:*$//')"
+# Anaconda enable by default
+anaena
+
+# Numbapro
+#export NUMBAPRO_CUDA_DRIVER="/usr/local/cuda/lib64/libcuinj64.so"
+#export NUMBAPRO_NVVM="$HOME/lib/LibNVVM/lib/x86_64_Linux_release/libnvvm.so"
+
+# ROS/Python
+export PYTHONPATH=$PYTHONPATH:$ROS_ROOT/core/roslib/src
+#export PYTHONPATH="${PYTHONPATH}:/usr/lib/pymodules/python2.7/"
+alias sim='export ROS_MASTER_URI=http://localhost:11311'
+alias brett='export ROS_MASTER_URI=http://c1:11311'
+
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$/usr/lib/x86_64-linux-gnu"
+
+# Cuda
+export CUDA_HOME=/usr/local/cuda-5.5
+export PATH=$PATH:$CUDA_HOME/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64:$CUDA_HOME/lib
+
+# Cula
+export CULA_ROOT="/usr/local/cula"
+export CULA_INC_PATH="$CULA_ROOT/include"
+export CULA_LIB_PATH_32="$CULA_ROOT/lib"
+export CULA_LIB_PATH_64="$CULA_ROOT/lib64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CULA_LIB_PATH_64"
+
+# OpenCV
+export PYTHONPATH="$HOME/lib/opencv-2.4.5/build/lib:$PYTHONPATH"
+
+# PR2 Brett stuff
+export PYTHONPATH="$PYTHONPATH:$HOME/lib/rapprentice"
+source ~/ros/sandbox/setup.sh
+brett
+export ROS_HOSTNAME='169.229.223.118'
+
+
+# Ipython Server
+alias ipyserver='ipython notebook --profile=myserver'
+
+# haskell
+export PATH=$HOME/.cabal/bin:$PATH
