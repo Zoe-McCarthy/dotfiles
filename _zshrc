@@ -103,7 +103,7 @@ export PYTHONPATH="$PYTHONPATH:$HOME/lib/trajopt/:$HOME/lib/trajopt/build/lib"
 alias anaena='export PATH="${HOME}/anaconda/bin/:$PATH"'
 alias anadis="export PATH=$(echo ${PATH} | awk -v RS=: -v ORS=: '/anaconda/ {next} {print}' | sed 's/:*$//')"
 # Anaconda enable by default
-anaena
+#anaena
 
 # Numbapro
 #export NUMBAPRO_CUDA_DRIVER="/usr/local/cuda/lib64/libcuinj64.so"
@@ -118,7 +118,7 @@ alias brett='export ROS_MASTER_URI=http://c1:11311'
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$/usr/lib/x86_64-linux-gnu"
 
 # Cuda
-export CUDA_HOME=/usr/local/cuda-5.5
+export CUDA_HOME=/usr/local/cuda
 export PATH=$PATH:$CUDA_HOME/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64:$CUDA_HOME/lib
 
@@ -133,10 +133,11 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CULA_LIB_PATH_64"
 export PYTHONPATH="$HOME/lib/opencv-2.4.5/build/lib:$PYTHONPATH"
 
 # PR2 Brett stuff
-export PYTHONPATH="$PYTHONPATH:$HOME/lib/rapprentice"
+#export PYTHONPATH="$PYTHONPATH:$HOME/lib/rapprentice"
 source ~/ros/sandbox/setup.sh
-brett
-export ROS_HOSTNAME='169.229.223.118'
+source /opt/ros/fuerte/setup.sh
+#brett
+#export ROS_HOSTNAME='169.229.223.118'
 
 
 # Ipython Server
