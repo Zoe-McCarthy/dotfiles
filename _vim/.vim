@@ -1,1 +1,1 @@
-/home/zoe/dotfiles/_vim
+/Users/zoe/dotfiles/_vim
