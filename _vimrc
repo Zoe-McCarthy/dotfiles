@@ -345,3 +345,12 @@ source $HOME/.vim/plugin/autotag.vim
 " Awesome visual line-based . formula
 vnoremap . :norm.<CR>
 
+" haskell
+" use ghc functionality for haskell files
+au Bufenter *.hs compiler ghc
+
+" configure browser for haskell_doc.vim
+let g:haddock_browser = "/Applications/Google Chrome.app/"
+" let g:haddock_browser = "C:/Program Files/Mozilla Firefox/firefox.exe"
+" let g:haddock_browser = "C:/Program Files/Internet Explorer/IEXPLORE.exe"
+
