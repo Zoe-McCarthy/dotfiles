@@ -10,5 +10,6 @@
 " try gf on import line, or ctrl-x ctrl-i, or [I, [i, ..
 setlocal include=^import\\s*\\(qualified\\)\\?\\s*
 setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.'
-setlocal suffixesadd=hs,lhs,hsc
+setlocal suffixesadd=hs,lhs,hpecific option
+
 
